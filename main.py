@@ -42,11 +42,11 @@ def send_email(subject, message, to_address):
     from_address = os.getenv("YOUR_EMAIL")
     password = os.getenv("EMAIL_PASS")
     msg = MIMEMultipart()
-    msg['From'] = "SmartBids.ai - Email verification <" + from_address + ">"
+    msg['From'] = "sapience-AI - Email verification <" + from_address + ">"
     msg['To'] = to_address
     msg['Subject'] = subject
     msg.attach(MIMEText(message, 'html'))
-    server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+    server = smtplib.SMTP_SSL('smtp.gmail.com', 587)
     server.login(from_address, password)
     text = msg.as_string()
     server.sendmail(from_address, to_address, text)
